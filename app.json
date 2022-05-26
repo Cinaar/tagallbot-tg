@@ -1,0 +1,22 @@
+{
+  "logo":"https://te.legra.ph/file/882112bfeff9c617be064.jpg",
+  "name": "tagallbot-tg",
+  "description": "Tagger bot for telegram Groups.",
+  "env": {
+    "TOKEN": {
+      "description": "Enter bot token. Get it From @botfather.",
+      "value": ""
+    },
+    "APP_ID": {
+      "description": "Get this value from my.telegram.org!",
+      "value": ""
+    },
+    "API_HASH": {
+      "description": "Get this value from my.telegram.org!",
+      "value": ""
+    }
+  },
+  "buildpacks": [{
+    "url": "https://github.com/heroku/heroku-buildpack-python.git"
+  }]
+}
