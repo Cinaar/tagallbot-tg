@@ -99,7 +99,7 @@ async def all(event):
     usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
     if usrnum == 5:
       if mode == "text_on_cmd":
-        txt = f"{usrtxt}\n\n{msg}\n\nMade by @AKH1LS. Follow the channel to be updated..!!"
+        txt = f"{usrtxt}\n\n{msg}\n\nMade by @AKH1LS. Subscribe the channel to be updated..!!"
         await client.send_message(chat_id, txt)
       elif mode == "text_on_reply":
         await msg.reply(usrtxt)
@@ -122,5 +122,5 @@ async def cancel_spam(event):
       pass
     return await event.respond('__Stopped.__')
 
-print("🥀 Tagging Started. Made by @AKH1LS. Follow us to be updated..!!")
+print("🥀 Tagging Started. Made by @AKH1LS. Subscribe the channel to be updated..!!")
 client.run_until_disconnected()
