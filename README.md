@@ -1,12 +1,12 @@
 # tagallbot-tg
 Mention user in telegram.
 
-### If needed support, join [BlueCode Community](https://t.me/BlueCodeSupport) and join my [channel](https://t.me/Akh1LS) for more projects..!!
-
 # Requirements 
 
 - ``Bot Token`` - Get it from [here](https://t.me/botfather).
 - ``API ID and Hash`` - Get it from [here](https://my.telegram.org).
+
+### If needed support, join [BlueCode Community](https://t.me/BlueCodeSupport) and join my [channel](https://t.me/Akh1LS) for more projects..!!
 
 # Installing
 
