@@ -1,6 +1,8 @@
 # tagallbot-tg
 Mention user in telegram.
 
+# If needed support, join [BlueCode Community](https://t.me/BlueCodeSupport) and join my [channel](https://t.me/Akh1LS) for more projects..!!
+
 # Requirements 
 
 - ``Bot Token`` - Get it from [here](https://t.me/botfather).
@@ -24,6 +26,4 @@ Mention user in telegram.
 > Don't leave Telegram and deploy.
 <p align="center"><a href="https://telegram.dog/XTZ_HerokuBot"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="250""/</a>  </p>
 
-_______
-
-# If needed support, join [BlueCode Community](https://t.me/BlueCodeSupport) and join my [channel](https://t.me/Akh1LS) for more projects..!!
+<details>
