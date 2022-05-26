@@ -1,7 +1,7 @@
 # tagallbot-tg
 Mention user in telegram.
 
-# If needed support, join [BlueCode Community](https://t.me/BlueCodeSupport) and join my [channel](https://t.me/Akh1LS) for more projects..!!
+### If needed support, join [BlueCode Community](https://t.me/BlueCodeSupport) and join my [channel](https://t.me/Akh1LS) for more projects..!!
 
 # Requirements 
 
