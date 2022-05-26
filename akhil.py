@@ -1,3 +1,6 @@
+# Changing some lines of code won't make you a programmer.
+# Use with credits else gay.
+
 import os, logging, asyncio
 from telethon import Button
 from telethon import TelegramClient, events
