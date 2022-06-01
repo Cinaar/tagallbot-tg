@@ -4,7 +4,7 @@
 
 
 import os, logging, asyncio
-from telethon import Button
+from telethon import InlineKeyboardMarkup, InlineKeyboardButton
 from telethon import TelegramClient, events
 from telethon.tl.types import ChannelParticipantAdmin
 from telethon.tl.types import ChannelParticipantCreator
@@ -28,13 +28,39 @@ async def start(event):
   await event.reply(
     "**Hello, I am Tag All Bot**, I can help your groups to mention users with mass quantity with a single command.\nDo ``/help`` to know more.",
     link_preview=False,
-    buttons=(
-      [
-        Button.url('Support', 'https://telegram.me/BlueCodeSupport'),
-        Button.url('Creator', 'https://telegram.me/AKH1LS')
-      ]
+    reply_markup = InlineKeyboardMarkup(
+
+        [
+
+            [
+
+                InlineKeyboardButton(
+
+                    text="Open Link",
+
+                    url=f"https://pixeldrain.com/u/{data['id']}"
+
+                ),
+
+                InlineKeyboardButton(
+
+                ,    text="Share Link",
+
+                    url=f"https://telegram.me/share/url?url=https://pixeldrain.com/u/{data['id']}"
+
+                )
+
+            ],
+
+            [
+
+                InlineKeyboardButton(text="Join Updates Channel", url="https://telegram.me/FayasNoushad")
+
+            ]
+
+        ]
+
     )
-  )
 
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
