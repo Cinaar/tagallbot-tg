@@ -1,5 +1,7 @@
 # Changing some lines of code won't make you a programmer.
 # Use with credits else gay.
+# © by Akhil (@AKH1LS).
+
 
 import os, logging, asyncio
 from telethon import Button
