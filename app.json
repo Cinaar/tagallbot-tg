@@ -1,5 +1,5 @@
 {
-  "logo":"https://te.legra.ph/file/fb8b26c900b8ae9055a7d.jpg",
+  "logo":"",
   "name": "tagallbot-tg",
   "description": "Tagger bot for telegram Groups.",
   "env": {
