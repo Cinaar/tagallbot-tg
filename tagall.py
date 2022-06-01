@@ -1,15 +1,15 @@
 # Changing some lines of code won't make you a programmer.
-# Use with credits else gay.
-# © by Akhil (@AKH1LS).
-
+# use with credits else gay.
+# © By @AKH1LS.
 
 import os, logging, asyncio
-from telethon import InlineKeyboardMarkup, InlineKeyboardButton
+
+from telegraph import upload_file
+
+from telethon import Button
 from telethon import TelegramClient, events
-from telethon.tl.types import ChannelParticipantAdmin
-from telethon.tl.types import ChannelParticipantCreator
-from telethon.tl.functions.channels import GetParticipantRequest
-from telethon.errors import UserNotParticipantError
+from telethon.sessions import StringSession
+from telethon.tl.types import ChannelParticipantsAdmins
 
 logging.basicConfig(
     level=logging.INFO,
@@ -20,149 +20,121 @@ LOGGER = logging.getLogger(__name__)
 api_id = int(os.environ.get("APP_ID"))
 api_hash = os.environ.get("API_HASH")
 bot_token = os.environ.get("TOKEN")
-client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
-spam_chats = []
+AJ = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
-@client.on(events.NewMessage(pattern="^/start$"))
+moment_worker = []
+
+
+# here replace "AkiraTaggerBot" with your own bot username.
+# use with credits else gay.
+
+@AJ.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply(
-    "**Hello, I am Tag All Bot**, I can help your groups to mention users with mass quantity with a single command.\nDo ``/help`` to know more.",
-    link_preview=False,
-    reply_markup = InlineKeyboardMarkup(
-        [
-           
-           [
-               
-                 InlineKeyboardButton(
-                 text="Support",
-                 url=f"https://telegram.dog/Akira_Support"
-             
-                ),
-                 InlineKeyboardButton(
-                 text="Creator",
-                 url=f"https://telegram.dog/AKH1LS"
+  await event.reply("Hello, I am TagAll Bot.\nI can help you to tag group members with less time in mass quantity.\nIf you have any query, do /help ",
+                    buttons=(
+                      [
+                         Button.url('Support', 'https://telegram.dog/Akira_Support'), 
+                         Button.url('Creator', 'https://telegram.dog/AKH1LS'), 
+                      ], 
+                      [
+                        Button.url('➕ ADD ME TO YOUR GROUP ➕', 'https://t.me/AkiraTaggerBot?startgroup=true'),   
+                      ]
+                   ), 
+                    link_preview=False
+                   )
 
-                )
+# here also replace "AkiraTaggerBot" with your own bot username.
+# use with credits else gay.
 
-            ],
+@AJ.on(events.NewMessage(pattern="^/help$"))
+async def help(event):
+  helptext = "**Tag Help Bot's Help Menu**\n\nCommand: /all \n You can use this command with text you want to tell others. \n`Example: /all Hii!` \nYou can use this command as an answer. any message Bot will tag users to replied message."
+  await event.reply(helptext,
+                    buttons=(
+                      [
+                         Button.url('Support', 'https://telegram.dog/Akira_Support'), 
+                         Button.url('Creator', 'https://telegram.dog/AKH1LS'), 
+                      ], 
+                      [
+                        Button.url('➕ ADD ME TO YOUR GROUP', 'https://t.me/AkiraTaggerBot?startgroup=true'),   
+                      ]
+                   ), 
+                    link_preview=False
+                   )
 
-            [
-
-                InlineKeyboardButton(text="Join Updates Channel", url="https://telegram.dog/Akira_News")
-
-            ]
-
-        ]
-
-    )
-
-
-@client.on(events.NewMessage(pattern="^/repo$"))
-async def start(event):
-  await event.reply(
-    "I am *AKIRA* superfast Tagger bot made for your groups. A fully open sourced bot for you. Click below to know my Source...",
-    link_preview=False,
-    reply_markup = InlineKeyboardMarkup(
-        [
-           
-           [
-               
-                 InlineKeyboardButton(
-                 text="Support",
-                 url=f"https://telegram.dog/Akira_Support"
-             
-                ),
-                 InlineKeyboardButton(
-                 text="Creator",
-                 url=f"https://telegram.dog/AKH1LS"
-
-                )
-
-            ],
-
-            [
-
-                InlineKeyboardButton(text="Join Updates Channel", url="https://telegram.dog/Akira_News")
-
-            ]
-
-        ]
-
-    )
- 
-@client.on(events.NewMessage(pattern="^/all ?(.*)"))
-async def all(event):
-  chat_id = event.chat_id
+@AJ.on(events.NewMessage(pattern="^/tagall|/call|/tall|/all|#all|@all?(.*)"))
+async def mentionall(event):
+  global moment_worker
   if event.is_private:
-    return await event.respond("This command can only be used in groups to tag members...")
+    return await event.respond("Use This In Channel or Group!")
   
-  is_admin = False
-  try:
-    partici_ = await client(GetParticipantRequest(
-      event.chat_id,
-      event.sender_id
-    ))
-  except UserNotParticipantError:
-    is_admin = False
-  else:
-    if (
-      isinstance(
-        partici_.participant,
-        (
-          ChannelParticipantAdmin,
-          ChannelParticipantCreator
-        )
-      )
-    ):
-      is_admin = True
-  if not is_admin:
-    return await event.respond("Only Admins can use me\n\nFor any query join @BlueCodeSupport !")
+  admins = []
+  async for admin in HwBot.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
+    admins.append(admin.id)
+  if not event.sender_id in admins:
+    return await event.respond("Only admin can use it.")
   
-  if event.pattern_match.group(1) and event.is_reply:
-    return await event.respond("__Give me one argument!__")
-  elif event.pattern_match.group(1):
+  if event.pattern_match.group(1):
     mode = "text_on_cmd"
     msg = event.pattern_match.group(1)
-  elif event.is_reply:
+  elif event.reply_to_msg_id:
     mode = "text_on_reply"
-    msg = await event.get_reply_message()
+    msg = event.reply_to_msg_id
     if msg == None:
-        return await event.respond("I can't mention members for older messages! (messages which are sent before I'm added to group) ")
+        return await event.respond("I can't Mention Members for Old Post!")
+  elif event.pattern_match.group(1) and event.reply_to_msg_id:
+    return await event.respond("Give me can an Argument. Ex: `/tag Hii, Where are you`")
   else:
-    return await event.respond("Reply to a message or give Me some text To mention members\n\nMade bY @AKH1LS !")
+    return await event.respond("Reply to Message or Give Some Text To Mention!")
+    
+  if mode == "text_on_cmd":
+    moment_worker.append(event.chat_id)
+    usrnum = 0
+    usrtxt = ""
+    async for usr in AJ.iter_participants(event.chat_id):
+      usrnum += 1
+      usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
+      if event.chat_id not in moment_worker:
+        await event.respond("Stopped!")
+        return
+      if usrnum == 5:
+        await HwBot.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
+        await asyncio.sleep(2)
+        usrnum = 0
+        usrtxt = ""
+        
   
-  spam_chats.append(chat_id)
-  usrnum = 0
-  usrtxt = ''
-  async for usr in client.iter_participants(chat_id):
-    if not chat_id in spam_chats:
-      break
-    usrnum += 1
-    usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
-    if usrnum == 5:
-      if mode == "text_on_cmd":
-        txt = f"{usrtxt}\n\n{msg}\n\nMade by @AKH1LS. Subscribe the channel to be updated..!!"
-        await client.send_message(chat_id, txt)
-      elif mode == "text_on_reply":
-        await msg.reply(usrtxt)
-      await asyncio.sleep(2)
-      usrnum = 0
-      usrtxt = ''
-  try:
-    spam_chats.remove(chat_id)
-  except:
-    pass
+  if mode == "text_on_reply":
+    moment_worker.append(event.chat_id)
+ 
+    usrnum = 0
+    usrtxt = ""
+    async for usr in AJ.iter_participants(event.chat_id):
+      usrnum += 1
+      usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
+      if event.chat_id not in moment_worker:
+        await event.respond("Stopped")
+        return
+      if usrnum == 5:
+        await AJ.send_message(event.chat_id, usrtxt, reply_to=msg)
+        await asyncio.sleep(2)
+        usrnum = 0
+        usrtxt = ""
 
-@client.on(events.NewMessage(pattern="^/cancel$"))
+
+@AJ.on(events.NewMessage(pattern="^/cancel$"))
 async def cancel_spam(event):
   if not event.chat_id in spam_chats:
-    return await event.respond('There is no Proccess... what should I cancel ?')
+    return await event.respond('There is no proccess on going....')
   else:
     try:
       spam_chats.remove(event.chat_id)
     except:
       pass
-    return await event.respond('**Stopped Mention !**')
+    return await event.respond('**Stopped mention**\n\n**Powered By: [Akira Tagger](https://telegram.dog/Akira_News).**')
 
-print("Bot started successfully... Made by @AKH1LS. Subscribe the channel to be updated..!!")
-client.run_until_disconnected()
+
+
+print("Started Successfully....")
+print("Made by @AKH1LS. Join the channel to be updated !")
+AJ.run_until_disconnected()
