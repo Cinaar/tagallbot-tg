@@ -8,6 +8,8 @@ Mention user in telegram.
 
 # Installing
 
+ Click below buttons to expand !
+
 <details>
 
   <summary>𝗗𝗲𝗽𝗹𝗼𝘆 𝘁𝗼 𝗛𝗲𝗿𝗼𝗸𝘂</summary>
