@@ -47,7 +47,20 @@ async def help(event):
       ]
     )
   )
-  
+ 
+@client.on(events.NewMessage(pattern="^/repo$"))
+async def start(event):
+  await event.reply(
+    "**I am *AKIRA* superfast Tagger bot made for your groups. A fully open sourced bot for you. Click below to know my Source...",
+    link_preview=False,
+    buttons=(
+      [
+        Button.url('Source Code', 'https://github.com/SpectraXCode/tagallbot-tg'),
+        Button.url('Chat with us', 'https://telegram.me/HELL_X_CHATS')
+      ]
+    )
+  )
+ 
 @client.on(events.NewMessage(pattern="^/all ?(.*)"))
 async def all(event):
   chat_id = event.chat_id
