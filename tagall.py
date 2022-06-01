@@ -150,7 +150,7 @@ async def cancel_spam(event):
     return await event.respond('**Stopped mention**\n\n**Powered By: [Akira Tagger](https://telegram.dog/Akira_News).**')
 
 
-
+print("Connecting...")
 print("Started Successfully....")
 print("Made by @AKH1LS. Join the channel to be updated !")
 AJ.run_until_disconnected()
