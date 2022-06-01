@@ -56,39 +56,6 @@ async def start(event):
 
     )
 
-@client.on(events.NewMessage(pattern="^/help$"))
-async def help(event):
-  helptext = "**Help Menu of TagAllBot**\n\nCommand: /all\nYou can use this command with text what you want to mention others.\nExample: `/all Hii!`\nYou can you this command as a reply to any message. Bot will tag users to that replied messsage.\n\nUse /cancel to stop tagging in group\n\nFollow [Akhil](https://telegram.me/AKH1LS) on Telegram to be updated..!!"
-  await event.reply(
-    helptext,
-    link_preview=False,
-    reply_markup = InlineKeyboardMarkup(
-        [
-           
-           [
-               
-                 InlineKeyboardButton(
-                 text="Support",
-                 url=f"https://telegram.dog/Akira_Support"
-             
-                ),
-                 InlineKeyboardButton(
-                 text="Creator",
-                 url=f"https://telegram.dog/AKH1LS"
-
-                )
-
-            ],
-
-            [
-
-                InlineKeyboardButton(text="Join Updates Channel", url="https://telegram.dog/Akira_News")
-
-            ]
-
-        ]
-
-    )
 
 @client.on(events.NewMessage(pattern="^/repo$"))
 async def start(event):
