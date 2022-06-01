@@ -29,24 +29,18 @@ async def start(event):
     "**Hello, I am Tag All Bot**, I can help your groups to mention users with mass quantity with a single command.\nDo ``/help`` to know more.",
     link_preview=False,
     reply_markup = InlineKeyboardMarkup(
-
         [
-
-            [
-
-                InlineKeyboardButton(
-
-                    text="Open Link",
-
-                    url=f"https://pixeldrain.com/u/{data['id']}"
-
+           
+           [
+               
+                 InlineKeyboardButton(
+                 text="Support",
+                 url=f"https://telegram.dog/Akira_Support"
+             
                 ),
-
-                InlineKeyboardButton(
-
-                ,    text="Share Link",
-
-                    url=f"https://telegram.me/share/url?url=https://pixeldrain.com/u/{data['id']}"
+                 InlineKeyboardButton(
+                 text="Creator",
+                 url=f"https://telegram.dog/AKH1LS"
 
                 )
 
@@ -54,7 +48,7 @@ async def start(event):
 
             [
 
-                InlineKeyboardButton(text="Join Updates Channel", url="https://telegram.me/FayasNoushad")
+                InlineKeyboardButton(text="Join Updates Channel", url="https://telegram.dog/Akira_News")
 
             ]
 
