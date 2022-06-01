@@ -62,26 +62,66 @@ async def help(event):
   await event.reply(
     helptext,
     link_preview=False,
-    buttons=(
-      [
-        Button.url('Support', 'https://telegram.me/BlueCodeSupport'),
-        Button.url('Creator', 'https://telegram.me/AKH1LS')
-      ]
+    reply_markup = InlineKeyboardMarkup(
+        [
+           
+           [
+               
+                 InlineKeyboardButton(
+                 text="Support",
+                 url=f"https://telegram.dog/Akira_Support"
+             
+                ),
+                 InlineKeyboardButton(
+                 text="Creator",
+                 url=f"https://telegram.dog/AKH1LS"
+
+                )
+
+            ],
+
+            [
+
+                InlineKeyboardButton(text="Join Updates Channel", url="https://telegram.dog/Akira_News")
+
+            ]
+
+        ]
+
     )
-  )
- 
+
 @client.on(events.NewMessage(pattern="^/repo$"))
 async def start(event):
   await event.reply(
-    "**I am *AKIRA* superfast Tagger bot made for your groups. A fully open sourced bot for you. Click below to know my Source...",
+    "I am *AKIRA* superfast Tagger bot made for your groups. A fully open sourced bot for you. Click below to know my Source...",
     link_preview=False,
-    buttons=(
-      [
-        Button.url('Source Code', 'https://github.com/SpectraXCode/tagallbot-tg'),
-        Button.url('Chat with us', 'https://telegram.me/HELL_X_CHATS')
-      ]
+    reply_markup = InlineKeyboardMarkup(
+        [
+           
+           [
+               
+                 InlineKeyboardButton(
+                 text="Support",
+                 url=f"https://telegram.dog/Akira_Support"
+             
+                ),
+                 InlineKeyboardButton(
+                 text="Creator",
+                 url=f"https://telegram.dog/AKH1LS"
+
+                )
+
+            ],
+
+            [
+
+                InlineKeyboardButton(text="Join Updates Channel", url="https://telegram.dog/Akira_News")
+
+            ]
+
+        ]
+
     )
-  )
  
 @client.on(events.NewMessage(pattern="^/all ?(.*)"))
 async def all(event):
@@ -149,7 +189,7 @@ async def all(event):
 @client.on(events.NewMessage(pattern="^/cancel$"))
 async def cancel_spam(event):
   if not event.chat_id in spam_chats:
-    return await event.respond('There Is No Proccess... what should I cancel ?')
+    return await event.respond('There is no Proccess... what should I cancel ?')
   else:
     try:
       spam_chats.remove(event.chat_id)
