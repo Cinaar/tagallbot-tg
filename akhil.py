@@ -36,7 +36,7 @@ async def start(event):
 
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Help Menu of TagAllBot**\n\nCommand: /all\n__You can use this command with text what you want to mention others.__\nExample: `/all Good Morning!`\n__You can you this command as a reply to any message. Bot will tag users to that replied messsage__.\n\nUse /cancel To Stop Tagging in group\n\nFollow [Akhil](https://telegram.me/AKH1LS) on Telegram to be updated..!!"
+  helptext = "**Help Menu of TagAllBot**\n\nCommand: /all\nYou can use this command with text what you want to mention others.\nExample: `/all Hii!`\nYou can you this command as a reply to any message. Bot will tag users to that replied messsage.\n\nUse /cancel to stop tagging in group\n\nFollow [Akhil](https://telegram.me/AKH1LS) on Telegram to be updated..!!"
   await event.reply(
     helptext,
     link_preview=False,
@@ -65,7 +65,7 @@ async def start(event):
 async def all(event):
   chat_id = event.chat_id
   if event.is_private:
-    return await event.respond("This command can Be Use In Groups And Channels !")
+    return await event.respond("This command can only be used in groups to tag members...")
   
   is_admin = False
   try:
@@ -87,7 +87,7 @@ async def all(event):
     ):
       is_admin = True
   if not is_admin:
-    return await event.respond("Only Admins can mention All\n\nFor any query join @BlueCodeSupport !")
+    return await event.respond("Only Admins can use me\n\nFor any query join @BlueCodeSupport !")
   
   if event.pattern_match.group(1) and event.is_reply:
     return await event.respond("__Give me one argument!__")
@@ -98,9 +98,9 @@ async def all(event):
     mode = "text_on_reply"
     msg = await event.get_reply_message()
     if msg == None:
-        return await event.respond("__I Can't Mention Members For Older Messages! (messages which are sent before I'm added to group)__")
+        return await event.respond("I can't mention members for older messages! (messages which are sent before I'm added to group) ")
   else:
-    return await event.respond("Reply To a Message Or give Me Some Text To Mention Others\n\nMade bY @AKH1LS !")
+    return await event.respond("Reply to a message or give Me some text To mention members\n\nMade bY @AKH1LS !")
   
   spam_chats.append(chat_id)
   usrnum = 0
