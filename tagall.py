@@ -66,10 +66,10 @@ async def help(event):
 async def mentionall(event):
   global moment_worker
   if event.is_private:
-    return await event.respond("Use This In Channel or Group!")
+    return await event.respond("Use this command in channel or group!")
   
   admins = []
-  async for admin in HwBot.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
+  async for admin in AJ.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
   if not event.sender_id in admins:
     return await event.respond("Only admin can use it.")
@@ -98,7 +98,7 @@ async def mentionall(event):
         await event.respond("Stopped!")
         return
       if usrnum == 5:
-        await HwBot.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
+        await AJ.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
         await asyncio.sleep(2)
         usrnum = 0
         usrtxt = ""
@@ -138,3 +138,6 @@ async def cancel_spam(event):
 print("Started Successfully....")
 print("Made by @AKH1LS. Join the channel to be updated !")
 AJ.run_until_disconnected()
+
+
+# MADE UNDER AKIRA PROJECT
