@@ -1,1 +1,1 @@
-bot: python3 akhil.py
+bot: python3 tagall.py
