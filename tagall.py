@@ -62,6 +62,22 @@ async def help(event):
                     link_preview=False
                    )
 
+@AJ.on(events.NewMessage(pattern="^/repo$"))
+async def repo(event):
+  repotext = "I am an open source bot made by [Akhil](https://telegram.dog/AKH1LS)."
+  await event.reply(helptext,
+                    buttons=(
+                      [
+                         Button.url('Source Code', 'https://github.com/SpectraXCode/tagallbot-tg'), 
+                         Button.url('Creator', 'https://telegram.dog/AKH1LS'), 
+                      ], 
+                      [
+                        Button.url('➕ ADD ME TO YOUR GROUP', 'https://t.me/AkiraTaggerBot?startgroup=true'),   
+                      ]
+                   ), 
+                    link_preview=False
+                   )
+
 @AJ.on(events.NewMessage(pattern="^/tagall|/call|/tall|/all|#all|@all?(.*)"))
 async def mentionall(event):
   global moment_worker
