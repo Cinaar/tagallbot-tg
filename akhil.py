@@ -65,7 +65,7 @@ async def start(event):
 async def all(event):
   chat_id = event.chat_id
   if event.is_private:
-    return await event.respond("__This command Can Be Use In Groups And Channels !__")
+    return await event.respond("This command can Be Use In Groups And Channels !")
   
   is_admin = False
   try:
@@ -87,7 +87,7 @@ async def all(event):
     ):
       is_admin = True
   if not is_admin:
-    return await event.respond("__Only Admins Can Mention All\n\nFor any query join @BlueCodeSupport !__")
+    return await event.respond("Only Admins can mention All\n\nFor any query join @BlueCodeSupport !")
   
   if event.pattern_match.group(1) and event.is_reply:
     return await event.respond("__Give me one argument!__")
@@ -100,7 +100,7 @@ async def all(event):
     if msg == None:
         return await event.respond("__I Can't Mention Members For Older Messages! (messages which are sent before I'm added to group)__")
   else:
-    return await event.respond("__Reply To a Message Or Give Me Some Text To Mention Others\n\nMade bY @AKH1LS !__")
+    return await event.respond("Reply To a Message Or give Me Some Text To Mention Others\n\nMade bY @AKH1LS !")
   
   spam_chats.append(chat_id)
   usrnum = 0
@@ -127,13 +127,13 @@ async def all(event):
 @client.on(events.NewMessage(pattern="^/cancel$"))
 async def cancel_spam(event):
   if not event.chat_id in spam_chats:
-    return await event.respond('__There Is No Proccess __')
+    return await event.respond('There Is No Proccess... what should I cancel ?')
   else:
     try:
       spam_chats.remove(event.chat_id)
     except:
       pass
-    return await event.respond('__Stopped.__')
+    return await event.respond('**Stopped Mention !**')
 
-print("🥀 Tagging Started. Made by @AKH1LS. Subscribe the channel to be updated..!!")
+print("Bot started successfully... Made by @AKH1LS. Subscribe the channel to be updated..!!")
 client.run_until_disconnected()
