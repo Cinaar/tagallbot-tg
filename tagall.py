@@ -99,7 +99,7 @@ async def mentionall(event):
     if msg == None:
         return await event.respond("I can't Mention Members for Old Post!")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("Give me can an Argument. Ex: `/tag Hii, Where are you`")
+    return await event.respond("Give me an Argument. Ex: `/tag Hii, Where are you`")
   else:
     return await event.respond("Reply to Message or Give Some Text To Mention!")
     
