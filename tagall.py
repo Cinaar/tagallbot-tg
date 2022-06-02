@@ -65,7 +65,7 @@ async def help(event):
 @AJ.on(events.NewMessage(pattern="^/repo$"))
 async def repo(event):
   repotext = "I am an open source bot made by [Akhil](https://telegram.dog/AKH1LS)."
-  await event.reply(helptext,
+  await event.reply(repotext,
                     buttons=(
                       [
                          Button.url('Source Code', 'https://github.com/SpectraXCode/tagallbot-tg'), 
