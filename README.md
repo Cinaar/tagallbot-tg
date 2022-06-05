@@ -26,5 +26,5 @@ Mention user in telegram.
 
 > Don't leave Telegram and deploy.
 
-<p align="center"><a href="https://telegram.dog/XTZ_HerokuBot"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="250""/</a>  </p>
+<p align="center"><a href="https://telegram.dog/XTZ_HerokuBot"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="200""/</a>  </p>
 
