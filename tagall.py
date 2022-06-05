@@ -56,7 +56,7 @@ async def help(event):
                          Button.url('Creator', 'https://telegram.dog/AKH1LS'), 
                       ], 
                       [
-                        Button.url('➕ ADD ME TO YOUR GROUP', 'https://t.me/AkiraTaggerBot?startgroup=true'),   
+                        Button.url('➕ ADD ME TO YOUR GROUP ➕', 'https://t.me/AkiraTaggerBot?startgroup=true'),   
                       ]
                    ), 
                     link_preview=False
@@ -72,7 +72,7 @@ async def repo(event):
                          Button.url('Creator', 'https://telegram.dog/AKH1LS'), 
                       ], 
                       [
-                        Button.url('➕ ADD ME TO YOUR GROUP', 'https://t.me/AkiraTaggerBot?startgroup=true'),   
+                        Button.url('➕ ADD ME TO YOUR GROUP ➕', 'https://t.me/AkiraTaggerBot?startgroup=true'),   
                       ]
                    ), 
                     link_preview=False
@@ -141,13 +141,13 @@ async def mentionall(event):
 @AJ.on(events.NewMessage(pattern="^/cancel$"))
 async def cancel_spam(event):
   if not event.chat_id in spam_chats:
-    return await event.respond('There is no proccess on going....')
+    return await event.respond('Nothing to cancel...)
   else:
     try:
       spam_chats.remove(event.chat_id)
     except:
       pass
-    return await event.respond('**Stopped mention**\n\n**Powered By: [Akira Tagger](https://telegram.dog/Akira_News).**')
+    return await event.respond('**Stopped mention...**')
 
 
 print("Connecting...")
