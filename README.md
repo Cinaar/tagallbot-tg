@@ -3,8 +3,8 @@ Mention user in telegram.
 
 # Requirements 
 
-- ``Bot Token`` - Get it from [here](https://t.me/botfather).
-- ``API ID and Hash`` - Get it from [here](https://my.telegram.org).
+- ``TOKEN`` - Get it from [here](https://t.me/botfather).
+- ``API_ID and API_HASH`` - Get it from [here](https://my.telegram.org).
 
 # Installing
 
