@@ -141,7 +141,7 @@ async def mentionall(event):
 @AJ.on(events.NewMessage(pattern="^/cancel$"))
 async def cancel_spam(event):
   if not event.chat_id in spam_chats:
-    return await event.respond('Nothing to cancel...)
+    return await event.respond("Nothing to cancel...")
   else:
     try:
       spam_chats.remove(event.chat_id)
