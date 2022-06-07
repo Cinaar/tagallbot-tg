@@ -1,6 +1,6 @@
 # Changing some lines of code won't make you a programmer.
 # use with credits else gay.
-# © By @AKH1LS.
+# © By @akhilprs.
 
 import os, logging, asyncio
 
