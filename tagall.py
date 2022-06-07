@@ -34,7 +34,7 @@ async def start(event):
                     buttons=(
                       [
                          Button.url('Support', 'https://telegram.dog/Akira_Support'), 
-                         Button.url('Creator', 'https://telegram.dog/AKH1LS'), 
+                         Button.url('Creator', 'https://telegram.dog/akhilprs'), 
                       ], 
                       [
                         Button.url('➕ ADD ME TO YOUR GROUP ➕', 'https://t.me/AkiraTaggerBot?startgroup=true'),   
@@ -53,7 +53,7 @@ async def help(event):
                     buttons=(
                       [
                          Button.url('Support', 'https://telegram.dog/Akira_Support'), 
-                         Button.url('Creator', 'https://telegram.dog/AKH1LS'), 
+                         Button.url('Creator', 'https://telegram.dog/akhilprs'), 
                       ], 
                       [
                         Button.url('➕ ADD ME TO YOUR GROUP ➕', 'https://t.me/AkiraTaggerBot?startgroup=true'),   
@@ -64,12 +64,12 @@ async def help(event):
 
 @AJ.on(events.NewMessage(pattern="^/repo$"))
 async def repo(event):
-  repotext = "I am an open source bot made by [Akhil](https://telegram.dog/AKH1LS)."
+  repotext = "I am an open source bot made by [Akhil](https://telegram.dog/akhilprs)."
   await event.reply(repotext,
                     buttons=(
                       [
                          Button.url('Source Code', 'https://github.com/SpectraXCode/tagallbot-tg'), 
-                         Button.url('Creator', 'https://telegram.dog/AKH1LS'), 
+                         Button.url('Creator', 'https://telegram.dog/akhilprs'), 
                       ], 
                       [
                         Button.url('➕ ADD ME TO YOUR GROUP ➕', 'https://t.me/AkiraTaggerBot?startgroup=true'),   
@@ -152,7 +152,7 @@ async def cancel_spam(event):
 
 print("Connecting...")
 print("Started Successfully....")
-print("Made by @AKH1LS. Join the channel to be updated !")
+print("Made by @akhilprs. Join the channel to be updated !")
 AJ.run_until_disconnected()
 
 
