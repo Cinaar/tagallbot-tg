@@ -33,8 +33,8 @@ async def start(event):
   await event.reply("Hello, I am TagAll Bot.\nI can help you to tag group members with less time in mass quantity.\nIf you have any query, do /help ",
                     buttons=(
                       [
-                         Button.url('Support', 'https://telegram.dog/Akira_Support'), 
-                         Button.url('Creator', 'https://telegram.dog/akhilprs'), 
+                         Button.url('Support', 'https://telegram.dog/lordchattt'), 
+                         Button.url('Creator', 'https://telegram.dog/nevarisoyumiste'), 
                       ], 
                       [
                         Button.url('➕ ADD ME TO YOUR GROUP ➕', 'https://t.me/AkiraTaggerBot?startgroup=true'),   
@@ -52,8 +52,8 @@ async def help(event):
   await event.reply(helptext,
                     buttons=(
                       [
-                         Button.url('Support', 'https://telegram.dog/Akira_Support'), 
-                         Button.url('Creator', 'https://telegram.dog/akhilprs'), 
+                         Button.url('Support', 'https://telegram.dog/lordchattt'), 
+                         Button.url('Creator', 'https://telegram.dog/nevarisoyumiste'), 
                       ], 
                       [
                         Button.url('➕ ADD ME TO YOUR GROUP ➕', 'https://t.me/AkiraTaggerBot?startgroup=true'),   
@@ -64,7 +64,7 @@ async def help(event):
 
 @AJ.on(events.NewMessage(pattern="^/repo$"))
 async def repo(event):
-  repotext = "I am an open source bot made by [Akhil](https://telegram.dog/akhilprs)."
+  repotext = "I am an open source bot made by [Akhil](https://telegram.dog/nevarisoyumiste)."
   await event.reply(repotext,
                     buttons=(
                       [
